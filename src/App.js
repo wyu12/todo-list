@@ -21,7 +21,10 @@ class App extends React.Component{
       const updatedTodos =  prevState.todos.map(todo => {
           //given a data Item, modify it iff id == id
           if(todo.id === id){
-              todo.completed = !todo.completed
+              return{
+                ...todo, //give me all the properties of this todo
+                completed: !todo.completed //but i will manually edit this property 
+              } //returns a new object without modifying the previous todo
           }
           return todo
         }
